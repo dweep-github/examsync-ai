@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ExamSync AI</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+      tailwind.config = {
+        darkMode: 'class', // This enables the toggle button to work
+        theme: {
+          extend: {
+            colors: {
+              // Custom colors if needed, but we used standard slate/indigo
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      
+      /* Chat Markdown Styles */
+      .markdown-content strong { font-weight: 700; color: inherit; }
+      .markdown-content ul { list-style-type: disc; padding-left: 1.2em; margin: 0.5em 0; }
+      .markdown-content ol { list-style-type: decimal; padding-left: 1.2em; margin: 0.5em 0; }
+      .markdown-content li { margin-bottom: 0.25em; }
+      .markdown-content p { margin-bottom: 0.5em; }
+      .markdown-content p:last-child { margin-bottom: 0; }
+      
+      /* Dark mode specific text adjustments */
+      .dark .markdown-content { color: #cbd5e1; }
+      
+      /* Hide scrollbar for clean chat UI */
+      .scrollbar-hide::-webkit-scrollbar { display: none; }
+      .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+      /* Hide Default Cursor (Since you are using TargetCursor) */
+      body, button, input, textarea, a {
+        cursor: none !important;
+      }
+    </style>
+    
+    <script type="importmap">
+    {
+      "imports": {
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+        "react-markdown": "https://esm.sh/react-markdown@9.0.1?bundle"
+      }
+    }
+    </script>
+  </head>
+  <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 h-screen overflow-hidden transition-colors duration-200">
+    <div id="root" class="h-full"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
